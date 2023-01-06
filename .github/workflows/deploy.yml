@@ -10,12 +10,12 @@ jobs:
     runs-on: debian
     steps:
     - uses: actions/checkout@v2
-    - name: Deploy
-      uses: /rsync-deployments@5.2.1
+    - name: rsync deployments
+      uses: burnett01/rsync-deployments@5.2.1
       with:
         switches: -avzr --delete
         path: ./
-        remote_path: /home/root/pizza
+        remote_path: /home/sauron/pizza
         remote_host: ${{ secrets.REMOTE_HOST }}
-        remote_user: root
+        remote_user: sauron
         remote_key: ${{ secrets.DEPLOY_KEY }}
